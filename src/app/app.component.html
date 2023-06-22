@@ -1,0 +1,47 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8">
+  
+          <div >
+            <label for="NewTodo">New Todo</label>
+            <input type="text" id="NewTodo" #f class="form-control" >
+            <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?" (click)="AddItem(f.value)" >+ Add</button>
+             </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2 col-sm-0 col-md-6 col-sm-offset-1 col-md-offset-2">           
+        <ul class="list-group custom-list" *ngFor="let item of Todolist">
+          <li class="list-group-item custom-list-item">{{item}}</li><i class="fas fa-trash"></i>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+
+  <button (click)="print()">Print</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+      <p> active count {{activecount}}</p>
+      <ul class="list-group custom-list" *ngFor="let i of active; let it=index">
+        <li class="list-group-item custom-list-item"><a (click)="setToinactive(it)">{{i}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+      <h3>Inactive list</h3>
+      <ul class="list-group custom-list" *ngFor="let i of inactive; let it=index">
+        <li class="list-group-item custom-list-item"><a (click)="setToactive(it)">{{i}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
